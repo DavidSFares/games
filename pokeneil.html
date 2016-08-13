@@ -1,5 +1,5 @@
 <h2 style="text-align:center;">Poke Neil</h2>
-<div class="mycanvas" style="text-align:center;"><canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas></div>div>
+<div class="mycanvas" style="text-align:center;"><canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas></div>
 
 <script type="text/javascript">
 	//player = neil
@@ -39,7 +39,7 @@
 		pressingRight:false,
 		aimAngle:0,
 		imgSrc: 'img/neil-goro.png',
-		img: new Image(40,60),
+		img: new Image(60,40),
 	};
 
 	player.img.src = player.imgSrc;
@@ -94,8 +94,8 @@
 	randomlyGenerateEnemy = function() {
 		var x = Math.random()*WIDTH;
 		var y = Math.random()*HEIGHT;
-		var height = 10 + Math.random()*30;
-		var width = 10 + Math.random()*30;
+		var height = 20 + Math.random()*50;
+		var width = height;
 		var id = Math.random();
 		var spdX = 5 + Math.random()*5;
 		var spdY = 5 + Math.random()*5;
@@ -122,8 +122,8 @@
 	randomlyGenerateUpgrade = function() {
 		var x = Math.random()*WIDTH;
 		var y = Math.random()*HEIGHT;
-		var height = 10;
-		var width = 10;
+		var height = 20;
+		var width = 20;
 		var id = Math.random();
 		var spdX = 0;
 		var spdY = 0;
@@ -169,8 +169,8 @@
 		if(overwriteAngle !== undefined){
 			angle = overwriteAngle;
 		}
-		var spdX = Math.cos(angle/180*Math.PI)*5;
-		var spdY = Math.sin(angle/180*Math.PI)*5;
+		var spdX = Math.cos(angle/180*Math.PI)*10;
+		var spdY = Math.sin(angle/180*Math.PI)*10;
 		Bullet(id,x,y,spdX,spdY,width,height)
 	}
 
@@ -303,7 +303,7 @@
 			randomlyGenerateEnemy();
 		}
 		if(frameCount%75 === 0) { //after 4sec
-			//randomlyGenerateUpgrade();
+			randomlyGenerateUpgrade();
 		}
 		player.attackCounter += player.atkSpd;
 		player.superCounter += player.atkSpd;
